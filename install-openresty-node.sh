@@ -10,7 +10,7 @@ which yum && sudo yum -y install gcc-c++ pcre-dev pcre-devel zlib-devel make ope
 rm -rf nginx-* pcre-* zlib-* release-* *.tar.gz ngx_pagespeed-release-* drizzle7*.* openresty*.*
 
 wget https://openresty.org/download/drizzle7-2011.07.21.tar.gz
- tar xzvf drizzle7-2011.07.21.tar.gz
+tar xzvf drizzle7-2011.07.21.tar.gz
 cd drizzle7-2011.07.21/
 ./configure --without-server
 make libdrizzle-1.0
@@ -40,14 +40,13 @@ cd openresty-1.11.2.1
 --with-http_sub_module \
 --with-http_xslt_module \
 --with-ipv6 \
- 
 --with-http_drizzle_module
 
 make
 make install
 apt-get -y autoclean
 apt-get -y autoremove
-cd..
+cd ..
 rm -rf nginx-* pcre-* zlib-* release-* *.tar.gz ngx_pagespeed-release-* drizzle7*.* openresty*.*
 ###########################################
 ### NODE(NVM) #############################
