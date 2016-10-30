@@ -8,7 +8,7 @@ if [ -f /etc/redhat-release ]; then
   yum install gcc-c++
   yum  -y install nginx-extras build-essential libpcre3-dev libssl-dev libgeoip-dev libpq-dev libxslt1-dev libgd2-xpm-dev libdrizzle-dev
 fi
-
+ 
 if [ -f /etc/lsb-release ]; then
 apt-get -y update
 apt-get -y install nginx-extras build-essential libpcre3-devel libssl-devel libgeoip-devel  libxslt1-devel libgd2-xpm-devel libdrizzle-devel
