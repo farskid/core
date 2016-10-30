@@ -61,8 +61,8 @@ make install
 which apt-get && apt-get -y autoclean
 which apt-get && apt-get -y autoremove
 
-which yum && yum -y autoclean
-which yum  && yum -y autoremove
+which yum &&  yum clean all
+ 
 
 cd ..
 rm -rf nginx-* pcre-* zlib-* release-* *.tar.gz ngx_pagespeed-release-* drizzle7*.* openresty*.*
