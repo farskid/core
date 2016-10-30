@@ -1,6 +1,8 @@
 #!/bin/bash
+
 PCREVER=8.32
 ZLIBVER=1.2.8
+
 ###########################################
 ################# OPENRESTY ###############
 ###########################################
@@ -31,6 +33,8 @@ tar zxvf openresty-1.11.2.1.tar.gz
 cd openresty-1.11.2.1
 
 ./configure \
+--with-pcre=../pcre-$PCREVER
+--with-zlib=../zlib-$ZLIBVER
 --with-sha1=/usr/include/openssl \
 --with-md5=/usr/include/openssl \
 --with-http_stub_status_module \
