@@ -26,7 +26,7 @@ tar xzvf drizzle7-2011.07.21.tar.gz
 cd drizzle7-2011.07.21/
 ./configure --without-server
 make libdrizzle-1.0
- make install-libdrizzle-1.0
+make install-libdrizzle-1.0
 cd ..
 wget -c https://openresty.org/download/openresty-1.11.2.1.tar.gz
 tar zxvf openresty-1.11.2.1.tar.gz
@@ -58,8 +58,12 @@ cd openresty-1.11.2.1
 
 make
 make install
-apt-get -y autoclean
-apt-get -y autoremove
+which apt-get && apt-get -y autoclean
+which apt-get && apt-get -y autoremove
+
+which yum && yum -y autoclean
+which yum  && yum -y autoremove
+
 cd ..
 rm -rf nginx-* pcre-* zlib-* release-* *.tar.gz ngx_pagespeed-release-* drizzle7*.* openresty*.*
 ###########################################
