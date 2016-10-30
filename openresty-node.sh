@@ -5,6 +5,7 @@
 if [ -f /etc/redhat-release ]; then
   yum -y update
   yum -y install epel-release
+  yum install gcc-c++
   yum  -y install nginx-extras build-essential libpcre3-dev libssl-dev libgeoip-dev libpq-dev libxslt1-dev libgd2-xpm-dev libdrizzle-dev
 fi
 
@@ -45,7 +46,7 @@ cd openresty-1.11.2.1
 --with-http_sub_module \
 --with-http_xslt_module \
 --with-ipv6 \
---with-http_postgres_module  \
+ 
 --with-http_drizzle_module
 
 make
