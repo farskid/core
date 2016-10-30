@@ -10,6 +10,14 @@ which yum && sudo yum -y install gcc-c++ pcre-dev pcre-devel zlib-devel make ope
 
 # delete libs is rebuild
 rm -rf nginx-* pcre-* zlib-* release-* *.tar.gz ngx_pagespeed-release-* drizzle7*.* openresty*.*
+# for rewrite_module
+wget http://sourceforge.net/projects/pcre/files/pcre/$PCREVER/pcre-$PCREVER.tar.gz/download \
+        -O pcre-$PCREVER.tar.gz
+tar xzf pcre-$PCREVER.tar.gz
+
+# for gzip module
+wget http://zlib.net/zlib-$ZLIBVER.tar.gz
+tar xzf zlib-$ZLIBVER.tar.gz
 
 wget https://openresty.org/download/drizzle7-2011.07.21.tar.gz
 tar xzvf drizzle7-2011.07.21.tar.gz
