@@ -6,7 +6,7 @@ if [ -f /etc/redhat-release ]; then
   yum -y update
   yum -y install epel-release
   yum install gcc-c++
-  yum  -y install nginx-extras build-essential libpcre3-dev libssl-dev libgeoip-dev libpq-dev libxslt1-dev libgd2-xpm-dev libdrizzle-dev
+  yum  -y install nginx-extras build-essential libpcre3-devel libssl-devel libgeoip-devel libxslt1-devel libgd2-xpm-devel libdrizzle-devel
 fi
  
 if [ -f /etc/lsb-release ]; then
