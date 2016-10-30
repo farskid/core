@@ -7,7 +7,7 @@ which apt-get && sudo apt-get install build-essential zlib1g-dev libpcre3 libpcr
 which yum && sudo yum install gcc-c++ pcre-dev pcre-devel zlib-devel make openssl-devel wget
 
 # delete libs is rebuild
-rm -rf nginx-* pcre-* zlib-* release-* *.tar.gz ngx_pagespeed-release-* drizzle7*.*
+rm -rf nginx-* pcre-* zlib-* release-* *.tar.gz ngx_pagespeed-release-* drizzle7*.* openresty*.*
 
 wget https://openresty.org/download/drizzle7-2011.07.21.tar.gz
  tar xzvf drizzle7-2011.07.21.tar.gz
