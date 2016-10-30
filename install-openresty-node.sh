@@ -2,17 +2,13 @@
 ###########################################
 ################# OPENRESTY ###############
 ###########################################
-if [ -f /etc/redhat-release ]; then
-  yum -y update
-  yum -y install epel-release
-  yum install gcc-c++
-  yum  -y install nginx-extras build-essential libpcre3-devel libssl-devel libgeoip-devel libxslt1-devel libgd2-xpm-devel libdrizzle-devel
-fi
- 
-if [ -f /etc/lsb-release ]; then
-apt-get -y update
-apt-get -y install nginx-extras build-essential libpcre3-devel libssl-devel libgeoip-devel  libxslt1-devel libgd2-xpm-devel libdrizzle-devel
-fi
+(which apt-get || which yum) || exit 1
+which apt-get && sudo apt-get install build-essential zlib1g-dev libpcre3 libpcre3-dev libssl-dev wget
+which yum && sudo yum install gcc-c++ pcre-dev pcre-devel zlib-devel make openssl-devel wget
+
+# delete libs is rebuild
+rm -rf nginx-* pcre-* zlib-* release-* *.tar.gz ngx_pagespeed-release-* drizzle7*.*
+
 wget https://openresty.org/download/drizzle7-2011.07.21.tar.gz
  tar xzvf drizzle7-2011.07.21.tar.gz
 cd drizzle7-2011.07.21/
