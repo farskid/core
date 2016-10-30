@@ -3,8 +3,8 @@
 ################# OPENRESTY ###############
 ###########################################
 (which apt-get || which yum) || exit 1
-which apt-get && sudo apt-get install build-essential zlib1g-dev libpcre3 libpcre3-dev libssl-dev wget
-which yum && sudo yum install gcc-c++ pcre-dev pcre-devel zlib-devel make openssl-devel wget
+which apt-get && sudo apt-get  -y install build-essential zlib1g-dev libpcre3 libpcre3-dev libssl-dev wget
+which yum && sudo yum -y install gcc-c++ pcre-dev pcre-devel zlib-devel make openssl-devel wget
 
 # delete libs is rebuild
 rm -rf nginx-* pcre-* zlib-* release-* *.tar.gz ngx_pagespeed-release-* drizzle7*.* openresty*.*
@@ -27,14 +27,12 @@ cd openresty-1.11.2.1
 --with-http_secure_link_module \
 --with-luajit \
 --with-pcre-jit \
---with-debug \
 --with-http_auth_request_module \
 --with-http_addition_module \
 --with-http_gunzip_module \
 --with-http_image_filter_module \
 --with-http_dav_module \
 --with-http_flv_module \
---with-http_geoip_module \
 --with-http_gzip_static_module \
 --with-http_realip_module \
 --with-http_stub_status_module \
@@ -49,7 +47,8 @@ make
 make install
 apt-get -y autoclean
 apt-get -y autoremove
-
+cd..
+rm -rf nginx-* pcre-* zlib-* release-* *.tar.gz ngx_pagespeed-release-* drizzle7*.* openresty*.*
 ###########################################
 ### NODE(NVM) #############################
 ###########################################
@@ -58,4 +57,4 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
 nvm install node
 
-cd ..
+
