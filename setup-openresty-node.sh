@@ -56,7 +56,7 @@ cd openresty-1.11.2.1
 --with-http_sub_module \
 --with-http_xslt_module \
 --with-ipv6 \
---add-module=..\rds-json-nginx-module
+--add-module=..\rds-json-nginx-module \
 --add-module=..\drizzle-nginx-module
 
 make
