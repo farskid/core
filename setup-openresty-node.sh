@@ -7,8 +7,8 @@ ZLIBVER=1.2.8
 ################# OPENRESTY ###############
 ###########################################
 (which apt-get || which yum) || exit 1
-which apt-get && sudo apt-get  -y install build-essential zlib1g-dev libpcre3 libpcre3-dev libssl-dev wget
-which yum && sudo yum -y install gcc-c++ pcre-dev pcre-devel zlib-devel make openssl-devel wget
+which apt-get && sudo apt-get  -y install git build-essential zlib1g-dev libpcre3 libpcre3-dev libssl-dev wget
+which yum && sudo yum -y install git gcc-c++ pcre-dev pcre-devel zlib-devel make openssl-devel wget
 
 # delete libs is rebuild
 rm -rf nginx-* pcre-* zlib-* release-* *.tar.gz ngx_pagespeed-release-* drizzle7*.* openresty*.*
@@ -28,6 +28,8 @@ cd drizzle7-2011.07.21/
 make libdrizzle-1.0
 make install-libdrizzle-1.0
 cd ..
+git clone https://github.com/openresty/drizzle-nginx-module.git
+git clone https://github.com/openresty/rds-json-nginx-module.git
 wget -c https://openresty.org/download/openresty-1.11.2.1.tar.gz
 tar zxvf openresty-1.11.2.1.tar.gz
 cd openresty-1.11.2.1
@@ -54,7 +56,8 @@ cd openresty-1.11.2.1
 --with-http_sub_module \
 --with-http_xslt_module \
 --with-ipv6 \
---with-http_drizzle_module
+--add-module=..\rds-json-nginx-module
+--add-module=..\drizzle-nginx-module
 
 make
 make install
