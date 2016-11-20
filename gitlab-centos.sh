@@ -22,8 +22,6 @@ adduser --shell /bin/bash --create-home --home-dir /home/gitlab gitlab
 su gitlab
 ssh-keygen -t rsa
 su
-
-
 adduser --system --shell /bin/sh --comment 'gitolite' --create-home --home-dir /home/git git
 cp /home/gitlab/.ssh/id_rsa.pub /home/git/gitlab.pub
 su git
